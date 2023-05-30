@@ -1,6 +1,7 @@
 import Router from 'express';
-import fs from 'fs';
-import util from 'util';
+import fs from 'fs'; // 'fs' provides file system operations.
+import util from 'util'; //'util' package is for working with promises.
+import { v4 as uuidv4 } from 'uuid'; // 'uuid' package is used to generate unique IDs.
 
 
 const notesRouter = Router();
@@ -26,22 +27,23 @@ notesRouter.post('/notes', (req, res) => {
   
 const { title, text } = req.body;
 
-
-if(title && text) {
-
+    if( title && text){
     const newEntry = {
+        id: uuidv4(),
         title,
-        text,
+        text, 
     }
-        fs.readFile('./db/db.json', 'utf8', (err, data) => {
-          if (err) {
-            console.error(err);
-          } else {
-            const parsedData = JSON.parse(data);
-            parsedData.push(newEntry);
-            writeToFile('./db/db.json', JSON.stringify(parsedData));
-          }
-        });
+
+    readFromFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) {
+        console.error(err);
+        res.status(500).json('Error reading note.');
+        } else {
+        const parsedData = JSON.parse(data);
+        parsedData.push(newEntry);
+        writeToFile('./db/db.json', JSON.stringify(parsedData));
+        }
+    });
      
     const response = {
         status: 'success',
@@ -49,17 +51,36 @@ if(title && text) {
     };
 
     res.json(response);
-    }else{
-        res
-        .status(500)
-        .json('Error in posting new entry.')
+    } else {
+        res.status(500).json({error: "Error in posting note."})
     }
-    
-    
+
 });
 
 
-
+// DELETE Route for deleting existing note entries
+notesRouter.delete('/notes/:id', (req, res) => {
+    const { id } = req.params;
+  
+    readFromFile('./db/db.json', 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).json('Error reading from file.');
+      } else {
+        let parsedData = JSON.parse(data);
+        parsedData = parsedData.filter((entry) => entry.id !== id);
+  
+        writeToFile('./db/db.json', JSON.stringify(parsedData))
+          .then(() => {
+            res.json({ status: 'success' });
+          })
+          .catch((err) => {
+            console.error(err);
+            res.status(500).json('Error deleting note.');
+          });
+      }
+    });
+  });
 
 
 export default notesRouter;
