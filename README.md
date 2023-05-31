@@ -52,9 +52,9 @@ https://github.com/Dinh282/note-taker/assets/112836220/4351c940-f819-43e4-aea0-d
 
  Screenshots of Note Taker App:
 
-![Screenshot of Note Taker Homepage](./Develop/public/assets/images/note-taker-screen-shot.jpg)
+![Screenshot of Note Taker Homepage](./public/assets/images/note-taker-screen-shot.jpg)
 
-![Screenshot of Notes](./Develop/public/assets/images/note-taker-notes-screen-shot.jpg)
+![Screenshot of Notes](./public/assets/images/note-taker-notes-screen-shot.jpg)
 
 ## Credits:
 
