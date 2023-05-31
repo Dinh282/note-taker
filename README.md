@@ -40,7 +40,7 @@ open it with VS Code.
 - After running the command, you should see "App listening at http://localhost:3001" in the terminal. You can Ctrl + Click the link or copy and paste it into your web browser to use the application.
 - From the home page, you can click on the "Get Started" button to be taken to the Notes page to create, view, and delete any notes you no longer need.
 
-- Alternatively, you can access the functional, deployed application at: 
+- Alternatively, you can access the functional, deployed application at: https://obscure-tor-75505.herokuapp.com/
 
 ---
 
@@ -74,7 +74,9 @@ https://github.com/Dinh282/note-taker/assets/112836220/4351c940-f819-43e4-aea0-d
 
 8. https://docs.insomnia.rest/insomnia/get-started#:~:text=Insomnia%20is%20an%20open%20source,code%20generation%2C%20and%20environment%20variables. (Help with using Insomnia)
 
-9. Instructor, TAs, and classmates.
+9. https://devcenter.heroku.com/articles/getting-started-with-nodejs (Help with Heroku)
+
+10. Instructor, TAs, and classmates.
 
 ## Questions
 Feel free to contact me at nguyen_dinh282@yahoo.com for additional information.  
