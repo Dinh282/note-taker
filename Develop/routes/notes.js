@@ -36,20 +36,21 @@ const { title, text } = req.body; // destructuring assignment to extract title a
         text, 
     }
 
-    readFromFile('./db/db.json')
+    readFromFile('./db/db.json') //read data in the db.json file then we parse the data before pushing newEntry to it.
       .then((data) => {
         const parsedData = JSON.parse(data);
         parsedData.push(newEntry);
-        return writeToFile('./db/db.json', JSON.stringify(parsedData));
+        return writeToFile('./db/db.json', JSON.stringify(parsedData)); // we then write the stringified data
+        // to the file before returning it. 
       })
-      .then(() => {
+      .then(() => { // if the readFromFile and writeToFile are fullfilled, we send a JSON response.
         const response = {
           status: 'success',
           body: newEntry,
         };
         res.json(response);
       })
-      .catch((err) => {
+      .catch((err) => { //here we catch any error and respond with the status of 500 and send a JSON message. 
         console.error('Error posting note:', err);
         res.status(500).json({ error: 'Error posting note.' });
       });
@@ -61,11 +62,12 @@ const { title, text } = req.body; // destructuring assignment to extract title a
 
 // DELETE Route for deleting existing note entries
 notesRouter.delete('/notes/:id', (req, res) => {
-  const { id } = req.params;
+  const { id } = req.params; // req.params represents parameters extract from the route path.
 
   readFromFile('./db/db.json')
     .then((data) => {
-      const parsedData = JSON.parse(data).filter((entry) => entry.id !== id);       
+      const parsedData = JSON.parse(data).filter((entry) => entry.id !== id); // data read form the .json file is
+      //parsed and filtered to exclude the entry with specified  id.       
       return writeToFile('./db/db.json', JSON.stringify(parsedData));
     })
     .then(() => {
