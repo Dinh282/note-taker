@@ -19,7 +19,7 @@ app.use(express.static('public'));
 
 // GET Route for note taker homepage.
 app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/pages/index.html'))
+  res.sendFile(path.join(__dirname, 'public/pages/index.html'))
 );
 
 // Get route for the notes page.
@@ -27,9 +27,9 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/pages/notes.html'))
 );
 
-// Wildcard route to handle any undefined routes. Takes user to 404 page.
+// Wildcard route to handle any undefined routes. Takes user to index.html.
 app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/pages/404.html'))
+  res.sendFile(path.join(__dirname, 'public/pages/index.html'))
 );
 
 // Initiate server on specified port.
