@@ -47,10 +47,7 @@ open it with VS Code.
 Video Demo of Application:
 
 
-
-
-
-
+https://github.com/Dinh282/note-taker/assets/112836220/4351c940-f819-43e4-aea0-db2e367de198
 
 
  Screenshots of Note Taker App:
