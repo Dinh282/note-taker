@@ -43,6 +43,14 @@ Video Demo of Application:
 
 ## Credits:
 
+1. https://expressjs.com/en/starter/basic-routing.html (Help with express (Routing))
+
+2. https://www.youtube.com/watch?v=-MTSQjw5DrM 
+
+3. https://www.youtube.com/watch?v=-mN3VyJuCjM
+
+4. https://www.youtube.com/watch?v=lsMQRaeKNDk 
+
 Instructor, TAs, and classmates.
 
 ## Questions
